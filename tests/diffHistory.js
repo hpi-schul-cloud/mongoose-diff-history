@@ -14,7 +14,7 @@ const mongoVersion = parseInt(mongoose.version);
 let session = null;
 console.log(`mongoVersion: ${mongoose.version}`);
 if (mongoVersion < 5) {
-    mongoose.connect('mongodb://localhost:27017/tekpub_test', {
+    mongoose.connect('mongodb://localhost:27017/diffhistory_test', {
         useMongoClient: true
     });
 }
@@ -25,9 +25,9 @@ else {
      *  and remember to stop your original non cluster mongoDB
      *  also need to use mongoose version 5.2.9 or later
      */
-    // const uri = (testTransaction) ? 'mongodb://localhost:27017,localhost:27018,localhost:27019/tekpub_test?replicaSet=rs' : 'mongodb://localhost:27017/tekpub_test';
-    const uri = 'mongodb://localhost:27017/tekpub_test';
-    const uriRS = 'mongodb://localhost:27017,localhost:27018,localhost:27019/tekpub_test?replicaSet=rs';
+    // const uri = (testTransaction) ? 'mongodb://localhost:27017,localhost:27018,localhost:27019/diffhistory_test?replicaSet=rs' : 'mongodb://localhost:27017/diffhistory_test';
+    const uri = 'mongodb://localhost:27017/diffhistory_test';
+    const uriRS = 'mongodb://localhost:27017,localhost:27018,localhost:27019/diffhistory_test?replicaSet=rs';
     mongoose.connect(uriRS, { useNewUrlParser: true }).then(() => {
         console.log('MongoDB connected');
         mongoose.connection.db.admin().serverInfo().then((serverInfo) => {
